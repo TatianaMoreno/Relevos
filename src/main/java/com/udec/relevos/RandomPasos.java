@@ -9,7 +9,7 @@ package com.udec.relevos;
  *  Claee para los numeros de pasos que usa el corredor
  * @author Tatiana Moreno, Andres Chila
  */
-public class Random {
+public class RandomPasos {
     /**
      * Clase estatica que realiza el calculo random
      * @return el numero randomico que son los pasos que corre el corredor

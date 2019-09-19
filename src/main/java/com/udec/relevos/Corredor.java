@@ -124,7 +124,7 @@ public class Corredor extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(Corredor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int avance = Random.random();
+        int avance = RandomPasos.random();
         
         equipo.setAnterior(equipo.getAnterior() + avance);
         imprimir();
