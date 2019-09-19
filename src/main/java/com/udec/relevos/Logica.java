@@ -10,16 +10,20 @@ package com.udec.relevos;
  * @author AndresChila, Tatiana Moreno
  */
 public class Logica extends Thread {
-
-    Corredor corredor1 = new Corredor((byte) 1, (byte) 0); ////(Equipo, posicion inicial)
-    Corredor corredor2 = new Corredor((byte) 1, (byte) 33);
-    Corredor corredor3 = new Corredor((byte) 1, (byte) 66);
-    Corredor corredor4 = new Corredor((byte) 2, (byte) 0);
-    Corredor corredor5 = new Corredor((byte) 2, (byte) 33);
-    Corredor corredor6 = new Corredor((byte) 2, (byte) 66);
-    Corredor corredor7 = new Corredor((byte) 3, (byte) 0);
-    Corredor corredor8 = new Corredor((byte) 3, (byte) 33);
-    Corredor corredor9 = new Corredor((byte) 3, (byte) 66);
+    
+    Equipo equipo1 = new Equipo("Equipo Rojo");
+    Equipo equipo2 = new Equipo("Equipo Azul");
+    Equipo equipo3 = new Equipo("Equipo Verde");
+    
+    Corredor corredor1 = new Corredor(equipo1,0,"Corredor 1") ;
+    Corredor corredor2 = new Corredor(equipo1,33,"Corredor 1");
+    Corredor corredor3 = new Corredor(equipo1,66,"Corredor 1");
+    Corredor corredor4 = new Corredor(equipo2,0,"Corredor 1");
+    Corredor corredor5 = new Corredor(equipo2,33,"Corredor 1");
+    Corredor corredor6 = new Corredor(equipo2,66,"Corredor 1");
+    Corredor corredor7 = new Corredor(equipo3,0,"Corredor 1");
+    Corredor corredor8 = new Corredor(equipo3,33,"Corredor 1");
+    Corredor corredor9 = new Corredor(equipo3,66,"Corredor 1");
 
     public Logica() {
 
@@ -27,45 +31,16 @@ public class Logica extends Thread {
 
     public void comienza() {
         corredor1.start();
+        corredor2.start();
+        corredor3.start();
         corredor4.start();
+        corredor5.start();
+        corredor6.start();
         corredor7.start();
-        while (corredor3.getPosicion() < 100 && corredor6.getPosicion() < 100 && corredor9.getPosicion() < 100) {
-            if (corredor1.getPosicion() >= 33) {
-                corredor2.start();
-                corredor1.stop();
-            }
-            if (corredor2.getPosicion() >= 66) {
-                corredor3.start();
-                corredor2.stop();
-            }
-            if (corredor4.getPosicion() >= 33) {
-                corredor5.start();
-                corredor4.stop();
-            }
-            if (corredor5.getPosicion() >= 66) {
-                corredor6.start();
-                corredor5.stop();
-            }
-            if (corredor7.getPosicion() >= 33) {
-                corredor8.start();
-                corredor7.stop();
-            }
-            if (corredor8.getPosicion() >= 66) {
-                corredor9.start();
-                corredor8.stop();
-            }
-            limpiaConsola();
-        }
+        corredor8.start();
+        corredor9.start();
+        
     }
-    public void limpiaConsola(){
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-    }
+    
 
 }
