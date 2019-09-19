@@ -6,11 +6,16 @@
 package com.udec.relevos;
 
 /**
- *  Clase que ejecuta el proyecto
- * @author Tatiana Moreno, Andres Chila
+ *
+ * @author AndresChila, Tatiana Moreno
  */
 public class Main {
-    public static void main(String[] args){
-     
+    
+    public static void main(String args[]){
+        
+        Logica inicio = new Logica();
+        inicio.comienza();
     }
+    
+    
 }
