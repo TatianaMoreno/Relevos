@@ -6,7 +6,7 @@
 package com.udec.relevos;
 
 /**
- *
+ *  Clase que ejecuta todos los hilos 
  * @author AndresChila, Tatiana Moreno
  */
 public class Logica extends Thread {
@@ -28,7 +28,9 @@ public class Logica extends Thread {
     public Logica() {
 
     }
-
+    /**
+     * Metodo usado para ejecutar los hilos
+     */
     public void comienza() {
         corredor1.start();
         corredor2.start();

@@ -6,10 +6,14 @@
 package com.udec.relevos;
 
 /**
- *
- * @author tmore
+ *  Claee para los numeros de pasos que usa el corredor
+ * @author Tatiana Moreno, Andres Chila
  */
 public class Random {
+    /**
+     * Clase estatica que realiza el calculo random
+     * @return el numero randomico que son los pasos que corre el corredor
+     */
     public static int random(){
       
         return (int) Math.floor(Math.random()*(4*1));

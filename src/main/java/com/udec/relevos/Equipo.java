@@ -7,7 +7,7 @@ package com.udec.relevos;
 
 /**
  *  Clase que guarda los valores de un equipo
- * @author Tatiana Moreno y Andres Chila
+ * @author Tatiana Moreno, Andres Chila
  */
 public class Equipo {
     //Variables estaticas que guardan colores
