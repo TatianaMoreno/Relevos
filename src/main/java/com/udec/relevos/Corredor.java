@@ -8,26 +8,31 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *  Clase que alamacena el corredor con sus tipos de variables
  * @author AndresChila, Tatiana Moreno
  */
 public class Corredor extends Thread {
+    //Variables staticas usadas para los colores
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_BLACK = "\u001B[30m";
-    
+    //Variable que almacena el equipo al que pertenece el corredor 
     Equipo equipo;
+    //Variable que almacena la posicion inicial del corredor esto se usa para
+    //poder saber en que posicio  debe empezar el corredor si como el primero en
+    //salio el del medio o el ultimo
     private int posicion;
+    //Variable que guarda el nombre del corredor 
     private String nombre;
-
+    //Constructor de la clase
     public Corredor(Equipo equipo, int posicion, String nombre) {
         this.equipo = equipo;
         this.posicion = posicion;
         this.nombre = nombre;
     }
-
+    
     public Equipo getEquipo() {
         return equipo;
     }
@@ -53,7 +58,9 @@ public class Corredor extends Thread {
         this.nombre = nombre;
     }
 
-     
+    /*
+    
+    */
     @Override
     public void run() {
         if (posicion == 0) {
@@ -67,6 +74,10 @@ public class Corredor extends Thread {
         }
     }
     
+    /**
+     * Metodo que se usa para poder mover al corredor
+     * @param corredor 
+     */
     public void avance(int corredor){
         while(true){
             if(corredor == 1){
@@ -75,7 +86,6 @@ public class Corredor extends Thread {
                     limpiaConsola();
                     synchronized (equipo) {
                         equipo.notifyAll();
-                        
                     }
                     break;
                 }
@@ -87,7 +97,6 @@ public class Corredor extends Thread {
                     synchronized (equipo) {
                         equipo.notify();
                     }
-                    
                     break;
                 }
             }
@@ -105,6 +114,10 @@ public class Corredor extends Thread {
             }
         }
     }
+    /**
+     * Metodo que se usa para sumar al corredor el random de 0 a 3
+     * @return la posicion del corredor
+     */
     public int pasos() {
         try {
             Thread.sleep(1000);
@@ -118,6 +131,9 @@ public class Corredor extends Thread {
         return equipo.getAnterior();
             
       }
+   /**
+    * Metodo que imprime al corredor y su posicion
+    */
     public void imprimir(){
         if(equipo.sincronizarImpresion().contains("R")){
             System.out.println("\033[31m"+equipo.sincronizarImpresion());
@@ -126,7 +142,10 @@ public class Corredor extends Thread {
         }else if(equipo.sincronizarImpresion().contains("V")){
             System.out.println("\033[32m"+equipo.sincronizarImpresion());
         }
-    }   
+    }
+    /**
+     * Metodo que se usa para hacer esperar a un corredor 
+     */
     public void esperar(){
         synchronized (equipo) {
             try {
@@ -136,6 +155,9 @@ public class Corredor extends Thread {
             }
         }
     }
+    /**
+     * Metodo usado para poder limpiar la consola 
+     */
     public void limpiaConsola(){
         System.out.println();
         System.out.println();
