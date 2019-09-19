@@ -6,19 +6,29 @@
 package com.udec.relevos;
 
 /**
- *
+ *  Clase que guarda los valores de un equipo
  * @author Tatiana Moreno y Andres Chila
  */
 public class Equipo {
+    //Variables estaticas que guardan colores
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_BLUE = "\u001B[34m";
+    //Variable que guarda el nombre del equipo
     private String nombreEquipo;
+    //Variable que gusrada la posicion anterios de un corredor
     private int anterior;
-
+    /**
+     * Contructor de la clase
+     * @param nombre 
+     */
     public Equipo(String nombre) {
         this.nombreEquipo = nombre;
     }
+    /**
+     * Metodo que soncroniza tanto la impresion como los hilos
+     * @return la impresion de los equipos
+     */
     public synchronized String sincronizarImpresion(){
         String imprimir="";
         imprimir = "\n" + nombreEquipo + " ";
@@ -42,7 +52,7 @@ public class Equipo {
         return imprimir;
         
     }
-
+    
     public String getNombreEquipo() {
         return nombreEquipo;
     }
