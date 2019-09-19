@@ -83,7 +83,6 @@ public class Corredor extends Thread {
             if(corredor == 1){
                 int pasoActual = pasos();
                 if (pasoActual >= 33) { 
-                    limpiaConsola();
                     synchronized (equipo) {
                         equipo.notifyAll();
                     }
@@ -92,8 +91,7 @@ public class Corredor extends Thread {
             }
             if(corredor == 2){
                 int pasoActual = pasos();
-                if (pasoActual >= 66) {    
-                    limpiaConsola();
+                if (pasoActual >= 66) {  
                     synchronized (equipo) {
                         equipo.notify();
                     }
@@ -103,7 +101,6 @@ public class Corredor extends Thread {
             if(corredor == 3){
                 int pasoActual = pasos();
                 if (pasoActual >= 100) {   
-                    limpiaConsola();
                     if(equipo.getNombreEquipo()=="Equipo Rojo")
                     {System.out.println(ANSI_BLACK+"El equipo "+ANSI_RED+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
                     else if(equipo.getNombreEquipo()=="Equipo Azul")
@@ -128,6 +125,7 @@ public class Corredor extends Thread {
         
         equipo.setAnterior(equipo.getAnterior() + avance);
         imprimir();
+        limpiaConsola();
         return equipo.getAnterior();
             
       }
@@ -167,6 +165,7 @@ public class Corredor extends Thread {
         System.out.println();
         System.out.println();
         System.out.println();
+        
     }
 
 }

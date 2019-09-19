@@ -35,20 +35,19 @@ public class Equipo {
         for (int i = 0; i <= 100; i++) {
             if (i == 33) {
                 if(nombreEquipo=="Equipo Rojo")
-                {imprimir += ""+ANSI_RED+"*";}
+                {imprimir += ""+ANSI_RED+"||";}
                 else if(nombreEquipo=="Equipo Azul")
-                {imprimir += ""+ANSI_BLUE+"*";}
-                else{imprimir += ""+ANSI_GREEN+"*";}
+                {imprimir += ""+ANSI_BLUE+"||";}
+                else{imprimir += ""+ANSI_GREEN+"||";}
             } else if (i == 66) {
-                imprimir += "*";
+                imprimir += "||";
             } else if (i == anterior) {
-                imprimir += "*|";
+                imprimir += "/*";
             } else {
                 imprimir += "_";
             }
             
         } 
-        
         return imprimir;
         
     }
@@ -69,4 +68,20 @@ public class Equipo {
         this.anterior = anterior;
     }
     
+
+    /**
+     * Metodo usado para poder limpiar la consola 
+     */
+    public void limpiaConsola(){
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        
+    }
+
 }
