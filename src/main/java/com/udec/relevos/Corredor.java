@@ -102,10 +102,10 @@ public class Corredor extends Thread {
                 int pasoActual = pasos();
                 if (pasoActual >= 100) {   
                     if(equipo.getNombreEquipo()=="Equipo Rojo")
-                    {System.out.println(ANSI_BLACK+"El equipo "+ANSI_RED+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
+                    {System.out.println(ANSI_BLACK+"El "+ANSI_RED+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
                     else if(equipo.getNombreEquipo()=="Equipo Azul")
-                    {System.out.println(ANSI_BLACK+"El equipo "+ANSI_BLUE+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
-                    else{System.out.println(ANSI_BLACK+"El equipo "+ANSI_GREEN+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
+                    {System.out.println(ANSI_BLACK+"El "+ANSI_BLUE+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
+                    else{System.out.println(ANSI_BLACK+"El "+ANSI_GREEN+equipo.getNombreEquipo()+ANSI_BLACK+" Ganó");}
                     System.exit(0);
                 }
             }
@@ -121,8 +121,9 @@ public class Corredor extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(Corredor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int avance = RandomPasos.random();
-        
+        int avance = (int) Math.floor(Math.random()*(4*1));
+        if(avance ==0)
+            avance = (int) Math.floor(Math.random()*(4*1));
         equipo.setAnterior(equipo.getAnterior() + avance);
         imprimir();
         limpiaConsola();
@@ -162,10 +163,7 @@ public class Corredor extends Thread {
         System.out.println();
         System.out.println();
         System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        
+               
     }
 
 }
